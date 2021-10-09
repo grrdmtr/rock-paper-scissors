@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Rock Paper Scissors Game</title>
+        <title>ROCK PAPER SCISSORS Game</title>
         <meta charset="UTF-8">
     </head>
     <body>
         <script>
-            
+
+            let computerPlay = function() {
+                let choices = ["ROCK", "PAPER", "SCISSORS"];
+                let computerChoise = choices[Math.floor(Math.random()*3)];
+                return computerChoise;
+            }
+
+            function singleRound (playerSelection, computerSelection) {
+
+               console.log(playerSelection);
+               computerSelection = computerSelection.toUpperCase();
+               console.log(computerSelection);
+
+                if (playerSelection == "ROCK" && computerSelection == "PAPER") {
+                    alert("You Lose! PAPER beats ROCK")
+                } else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
+                    alert("You win!")
+                } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
+                    alert("You win!")
+                } else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+                    alert("You Lose! ROCK beats SCISSORS")
+                } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
+                    alert('You Lose! SCISSORS beats PAPER')
+                } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+                    alert("You win!")
+                } else if (playerSelection == "PAPER" && computerSelection == "PAPER") {
+                    alert("It's a draw")
+                } else if (playerSelection == "ROCK" && computerSelection == "ROCK") {
+                    alert("It's a draw")
+                } else if (playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
+                    alert("It's a draw")
+                } else {
+                    alert("Something went wrong")
+                }
+            }
+
+            let playerChoice = function() {
+                let select = prompt('Write "ROCK" "PAPER" or "SCISSORS"');
+                select = select.toUpperCase();
+                return select;
+            }
+
         </script>
     </body>
 </html>
