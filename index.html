@@ -13,30 +13,49 @@
                 return computerChoise;
             }
 
-            function singleRound (playerSelection, computerSelection) {
+            let score;
 
-               console.log(playerSelection);
+            function playRound (playerSelection, computerSelection) {
+
+               playerSelection = playerSelection.toUpperCase();
                computerSelection = computerSelection.toUpperCase();
-               console.log(computerSelection);
 
                 if (playerSelection == "ROCK" && computerSelection == "PAPER") {
-                    alert("You Lose! PAPER beats ROCK")
+                    score = "lose";
+                    alert("You Lose! PAPER beats ROCK");
+                    return score;
                 } else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
-                    alert("You win!")
+                    score = "win";
+                    alert("You win!");
+                    return score;
                 } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
-                    alert("You win!")
+                    score = "win";
+                    alert("You win!");
+                    return score;
                 } else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
-                    alert("You Lose! ROCK beats SCISSORS")
+                    score = "lose";
+                    alert("You Lose! ROCK beats SCISSORS");
+                    return score;
                 } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
-                    alert('You Lose! SCISSORS beats PAPER')
+                    score = "lose";
+                    alert('You Lose! SCISSORS beats PAPER');
+                    return score;
                 } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
-                    alert("You win!")
+                    score = "win";
+                    alert("You win!");
+                    return score;
                 } else if (playerSelection == "PAPER" && computerSelection == "PAPER") {
-                    alert("It's a draw")
+                    score = "draw";
+                    alert("It's a draw");
+                    return score;
                 } else if (playerSelection == "ROCK" && computerSelection == "ROCK") {
-                    alert("It's a draw")
+                    score = "draw";
+                    alert("It's a draw");
+                    return score;
                 } else if (playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
+                    score = "draw";
                     alert("It's a draw")
+                    return score;
                 } else {
                     alert("Something went wrong")
                 }
@@ -47,7 +66,41 @@
                 select = select.toUpperCase();
                 return select;
             }
-
+           
+            let game = function() {
+                let rounds;
+                let playerScore = 0;
+                let computerScore = 0;
+                let finalScore;
+                for (i=0; i <= 5; i++) {
+                    console.log(playRound(playerChoice(), computerPlay())); 
+                    if (score === "win") {
+                        playerScore += 1;
+                        finalScore =  `The score is ${playerScore} - ${computerScore}`;
+                        console.log(playerScore);
+                        console.log(computerScore);
+                        console.log(finalScore);
+                    } else if (score === "lose") {
+                        computerScore += 1;
+                        finalScore =  `The score is ${playerScore} - ${computerScore}`;
+                        console.log(playerScore);
+                        console.log(computerScore);
+                        console.log(finalScore);
+                    } else if (score === "draw") {
+                        finalScore =  `The score is ${playerScore} - ${computerScore}`;
+                        console.log(playerScore);
+                        console.log(computerScore);
+                        console.log(finalScore);
+                    }
+                }
+                if (playerScore > computerScore) {
+                    alert("You won!")
+                } else if (playerScore <computerScore) {
+                    alert("You lose!")
+                } else {
+                    alert("It's a draw!")
+                }
+            }
         </script>
     </body>
 </html>
