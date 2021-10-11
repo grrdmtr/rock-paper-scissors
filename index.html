@@ -57,7 +57,9 @@
                     alert("It's a draw")
                     return score;
                 } else {
-                    alert("Something went wrong")
+                    alert("Something went wrong");
+                    score = undefined;
+                    return score;
                 }
             }
 
@@ -91,14 +93,19 @@
                         console.log(playerScore);
                         console.log(computerScore);
                         console.log(finalScore);
+                    } else if(score === undefined) {
+                        playRound(playerChoice(), computerPlay());
+                        console.log(playerScore);
+                        console.log(computerScore);
+                        console.log(finalScore);
                     }
                 }
                 if (playerScore > computerScore) {
-                    alert("You won!")
+                    alert(`${finalScore}. You won!`);
                 } else if (playerScore <computerScore) {
-                    alert("You lose!")
+                    alert(`${finalScore}. You lose!`)
                 } else {
-                    alert("It's a draw!")
+                    alert(`${finalScore}. It's a draw!`)
                 }
             }
         </script>
