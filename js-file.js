@@ -12,87 +12,76 @@ function playersPlay() {
     return select;
 }
 
+let score;
+
 function playRound (playerSelection, computerSelection) {
-
-    let score;
-
-     if (playerSelection == "ROCK" && computerSelection == "PAPER") {
+    
+    if (playerSelection == "ROCK" && computerSelection == "PAPER") {
          score = "lose";
-         console.log("You Lose! PAPER beats ROCK");
-         return score;
-     } else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
+         result.textContent = "You Lose! PAPER beats ROCK";
+    } else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
          score = "win";
-         console.log("You win!");
-         return score;
-     } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
+         result.textContent = "You win!";
+    } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
          score = "win";
-         console.log("You win!");
-         return score;
-     } else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+         result.textContent = "You win!";
+    } else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
          score = "lose";
-         console.log("You Lose! ROCK beats SCISSORS");
-         return score;
-     } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
+         result.textContent = "You Lose! ROCK beats SCISSORS";
+    } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
          score = "lose";
-         console.log('You Lose! SCISSORS beats PAPER');
-         return score;
-     } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+         result.textContent = 'You Lose! SCISSORS beats PAPER';
+    } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
          score = "win";
-         console.log("You win!");
-         return score;
-     } else if (playerSelection == "PAPER" && computerSelection == "PAPER") {
+         result.textContent = "You win!";
+    } else if (playerSelection == "PAPER" && computerSelection == "PAPER") {
          score = "draw";
-         console.log("It's a draw");
-         return score;
-     } else if (playerSelection == "ROCK" && computerSelection == "ROCK") {
+         result.textContent = "It's a draw";
+    } else if (playerSelection == "ROCK" && computerSelection == "ROCK") {
          score = "draw";
-         console.log("It's a draw");
-         return score;
-     } else if (playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
+         result.textContent = "It's a draw";
+    } else if (playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
          score = "draw";
-         console.log("It's a draw")
-         return score;
-     } 
- }
+         result.textContent = "It's a draw";
+    };
+    getResult(); 
+};
+let playerScore = 0;
+let computerScore = 0;
+let totalScore = 0;
 
-function game() {
-     let playerScore = 0;
-     let computerScore = 0;
-     let finalScore;
-     // check prefix and postfix incrementation ++i, i++;
-     for (i=0; i <= 5; i++) {
-         console.log(playRound(playersPlay(), computerPlay())); 
-         if (score === "win") {
-             playerScore += 1;
-             finalScore =  `The score is ${playerScore} - ${computerScore}`;
-             console.log(playerScore);
-             console.log(computerScore);
-             console.log(finalScore);
-         } else if (score === "lose") {
-             computerScore += 1;
-             finalScore =  `The score is ${playerScore} - ${computerScore}`;
-             console.log(playerScore);
-             console.log(computerScore);
-             console.log(finalScore);
-         } else if (score === "draw") {
-             finalScore =  `The score is ${playerScore} - ${computerScore}`;
-             console.log(playerScore);
-             console.log(computerScore);
-             console.log(finalScore);
-         } else if(score === undefined) {
-             playRound(playersPlay(), computerPlay());
-             console.log(playerScore);
-             console.log(computerScore);
-             console.log(finalScore);
-         }
+function getResult() {
+    if (score === "win") {
+        playerScore += 1;
+        } else if (score === "lose") {
+        computerScore += 1;
+        }
+        console.log(playerScore);
+        console.log(computerScore);
+        checkWinner();  
+    } 
+
+function checkWinner() {
+
+    totalScore = playerScore + computerScore;    
+
+     if (playerScore > computerScore && totalScore === 5) {
+        result.textContext = "Congratulations! You won!";
+        playerScore = 0;
+        computerScore = 0;
+     } else if (playerScore < computerScore &&  totalScore === 5) {
+        result.textContent = "Bohoo! You lose!";
+        playerScore = 0;
+        computerScore = 0;
+     } else if (playerScore == computerScore &&  totalScore === 5) {
+        result.textContext = "Ha! It's a draw!";
+        playerScore = 0;
+        computerScore = 0;
      }
-     if (playerScore > computerScore) {
-         console.log(`${finalScore}. You won!`);
-     } else if (playerScore <computerScore) {
-         console.log(`${finalScore}. You lose!`)
-     } else {
-         console.log(`${finalScore}. It's a draw!`)
-     }
- }
+}
 
- window.addEventListener('click', playRound);
+ const container = document.querySelector('#container');
+
+ const result = document.createElement('div');
+ result.classList.add('result');
+ container.appendChild(result);

@@ -4,10 +4,19 @@
         <title>ROCK PAPER SCISSORS Game</title>
         <meta charset="UTF-8">
         <script src="js-file.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <button onclick="playRound('ROCK', computerPlay())">Rock</button>
-    <button onclick="playRound('PAPER', computerPlay())">Paper</button>
-    <button onclick="playRound('SCISSORS', computerPlay())">Scissors</button>
+        <div id="container" class="container"> 
+            <header class="title">ROCK PAPER SCISSORS GAME</header>  
+                <div class="game-container">
+                    <div class="choices"> 
+                        <button onclick="playRound('ROCK', computerPlay())">Rock</button>
+                        <button onclick="playRound('PAPER', computerPlay())">Paper</button>
+                        <button onclick="playRound('SCISSORS', computerPlay())">Scissors</button>
+                    </div>
+                </div>
+            <footer>© grrdmtr</footer>    
+        </div> 
     </body>
 </html>
