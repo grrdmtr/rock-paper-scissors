@@ -7,13 +7,13 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="container" class="container"> 
+        <div id="main" class="mainContainer"> 
             <header class="title">ROCK PAPER SCISSORS GAME</header>  
-                <div class="game-container">
+                <div id="game" class="game-container">
                     <div class="choices"> 
-                        <button onclick="playRound('ROCK', computerPlay())">Rock</button>
-                        <button onclick="playRound('PAPER', computerPlay())">Paper</button>
-                        <button onclick="playRound('SCISSORS', computerPlay())">Scissors</button>
+                        <button class="button" onclick="playRound('ROCK', computerPlay())">Rock</button>
+                        <button class="button" onclick="playRound('PAPER', computerPlay())">Paper</button>
+                        <button class="button" onclick="playRound('SCISSORS', computerPlay())">Scissors</button>
                     </div>
                 </div>
             <footer>© grrdmtr</footer>    
