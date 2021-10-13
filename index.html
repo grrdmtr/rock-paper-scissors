@@ -3,111 +3,11 @@
     <head>
         <title>ROCK PAPER SCISSORS Game</title>
         <meta charset="UTF-8">
+        <script src="js-file.js" defer></script>
     </head>
     <body>
-        <script>
-
-            let computerPlay = function() {
-                let choices = ["ROCK", "PAPER", "SCISSORS"];
-                let computerChoise = choices[Math.floor(Math.random()*3)];
-                return computerChoise;
-            }
-
-            let score;
-
-            function playRound (playerSelection, computerSelection) {
-
-               playerSelection = playerSelection.toUpperCase();
-               computerSelection = computerSelection.toUpperCase();
-
-                if (playerSelection == "ROCK" && computerSelection == "PAPER") {
-                    score = "lose";
-                    alert("You Lose! PAPER beats ROCK");
-                    return score;
-                } else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
-                    score = "win";
-                    alert("You win!");
-                    return score;
-                } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
-                    score = "win";
-                    alert("You win!");
-                    return score;
-                } else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
-                    score = "lose";
-                    alert("You Lose! ROCK beats SCISSORS");
-                    return score;
-                } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
-                    score = "lose";
-                    alert('You Lose! SCISSORS beats PAPER');
-                    return score;
-                } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
-                    score = "win";
-                    alert("You win!");
-                    return score;
-                } else if (playerSelection == "PAPER" && computerSelection == "PAPER") {
-                    score = "draw";
-                    alert("It's a draw");
-                    return score;
-                } else if (playerSelection == "ROCK" && computerSelection == "ROCK") {
-                    score = "draw";
-                    alert("It's a draw");
-                    return score;
-                } else if (playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
-                    score = "draw";
-                    alert("It's a draw")
-                    return score;
-                } else {
-                    alert("Something went wrong");
-                    score = undefined;
-                    return score;
-                }
-            }
-
-            let playerChoice = function() {
-                let select = prompt('Write "ROCK" "PAPER" or "SCISSORS"');
-                select = select.toUpperCase();
-                return select;
-            }
-           
-            let game = function() {
-                let rounds;
-                let playerScore = 0;
-                let computerScore = 0;
-                let finalScore;
-                for (i=0; i <= 5; i++) {
-                    console.log(playRound(playerChoice(), computerPlay())); 
-                    if (score === "win") {
-                        playerScore += 1;
-                        finalScore =  `The score is ${playerScore} - ${computerScore}`;
-                        console.log(playerScore);
-                        console.log(computerScore);
-                        console.log(finalScore);
-                    } else if (score === "lose") {
-                        computerScore += 1;
-                        finalScore =  `The score is ${playerScore} - ${computerScore}`;
-                        console.log(playerScore);
-                        console.log(computerScore);
-                        console.log(finalScore);
-                    } else if (score === "draw") {
-                        finalScore =  `The score is ${playerScore} - ${computerScore}`;
-                        console.log(playerScore);
-                        console.log(computerScore);
-                        console.log(finalScore);
-                    } else if(score === undefined) {
-                        playRound(playerChoice(), computerPlay());
-                        console.log(playerScore);
-                        console.log(computerScore);
-                        console.log(finalScore);
-                    }
-                }
-                if (playerScore > computerScore) {
-                    alert(`${finalScore}. You won!`);
-                } else if (playerScore <computerScore) {
-                    alert(`${finalScore}. You lose!`)
-                } else {
-                    alert(`${finalScore}. It's a draw!`)
-                }
-            }
-        </script>
+    <button onclick="playRound('ROCK', computerPlay())">Rock</button>
+    <button onclick="playRound('PAPER', computerPlay())">Paper</button>
+    <button onclick="playRound('SCISSORS', computerPlay())">Scissors</button>
     </body>
 </html>
