@@ -5,11 +5,15 @@
         <meta charset="UTF-8">
         <script src="js-file.js" defer></script>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="">
     </head>
     <body>
         <div id="main" class="mainContainer"> 
             <header class="title">ROCK PAPER SCISSORS GAME</header>  
                 <div id="game" class="game-container">
+                    <div class="instructions-container">
+                        <p>The game is simple. Choose rock, paper, or scissors, and after five rounds the winner will be anounced.</p>
+                    </div>
                     <div class="choices"> 
                         <button class="button" onclick="playRound('ROCK', computerPlay())">Rock</button>
                         <button class="button" onclick="playRound('PAPER', computerPlay())">Paper</button>
